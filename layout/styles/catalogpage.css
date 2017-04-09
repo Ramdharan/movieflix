@@ -1,0 +1,74 @@
+
+
+html,body{
+    background: black;
+    box-sizing: border-box;
+
+    font-family: 'Helvetica','Arial','sans-serif';
+    color: #39a8aa;
+    padding-top: 10px;
+
+}
+
+.container.row{
+    padding-top: 10px;
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 25px;
+}
+.select-form{
+    padding-top: 10px;
+}
+#top-banner{
+    background: #1ab188 }
+
+/*
+
+.tmargin {
+    margin-top: 10px;
+    background: #1ab188;
+    font-size: 15px;
+    border-color: transparent;
+
+*/
+.logoutbtn{
+    margin-top: 10px;
+    background: #1ab188;
+    font-size: 15px;
+    border-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+    div#searchbar{
+        padding-top: 10px;
+    }
+
+}
+/*div#searchbar{
+    padding-top: 0px;
+}*/
+
+div.createbtn{
+    padding-top: 10px;
+}
+div.form-inline{
+    padding-top: 10px;
+
+
+}
+
+
+
+#catalogs .row img{
+    margin-bottom : 20px;
+    max-height: 150px;
+
+}
+
+
+
+

@@ -1,0 +1,397 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/catalogpage.css">
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<div class="container" >
+    <div class="row" id="top-banner">
+        <div class="col-xs-12 col-sm-11" >
+            <h2>Welcome to Movie Filx</h2>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-1" id="btn">
+            <button  class="btn btn-success btn-lg pull-right logoutbtn">Logout</button>
+
+        </div>
+    </div>
+
+    <!--
+    <div class="row">
+        <div class="col-xs-12 col-sm-offset-10 col-md-offset-10 col-lg-offset-10">
+            <div class="createbtn">
+        <button class="btn btn-info btn-md ">Create</button></div>
+    </div>
+    </div>-->
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-3"   >
+
+            <div class="form-group select-form">
+                <select class="form-control" >
+                    <option>All</option>
+                    <option>Top Rated Movies</option>
+                    <option>Top Rated Series</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-3" id="searchbar">
+
+            <input class="form-control" type="search" value="Search by title" id="example-search-input">
+
+
+        </div>
+        <div class="col-xs-12 col-sm-5" >
+            <div class="form-inline" >
+
+<span>
+    Sort By
+</span>
+                <select class="form-control" id="sel1">
+                    <option>None</option>
+                    <option>Year</option>
+                    <option>Imdb Ratings</option>
+                    <option>Votes</option>
+                </select>
+            </div>
+
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-11  col-sm-1">
+                <div class="createbtn">
+                    <button class="btn btn-info btn-md " data-toggle="modal"
+                            data-target="#myModal">Create</button></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <div id="catalogs">
+
+    </div>
+
+    <div class="row">
+        <div class=col-md-12>
+            <ul class="pagination pagination-lg">
+
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <!-- Trigger the modal with a button -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Create new catalog</h4>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <form>
+                            <div class="form-group">
+                                <label for="catalogtitle">Title</label>
+                                <input type="text" class="form-control" id="catalogtitle" placeholder="Title">
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <label for="year">Year</label>
+                                <input type="text" class="form-control" id="year" placeholder="year">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rated">Rated</label>
+                                <input type="text" class="form-control" id="rated" placeholder="">
+                            </div>
+
+
+
+
+
+                            <div class="form-group"> <!-- Date input -->
+                                <label class="control-label" for="date">Released</label>
+                                <input class="form-control" id="date" name="date"
+                                       value="09/23/1987"
+                                       placeholder="MM/DD/YYY" type="text"/>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="relased">Run time</label>
+                                <input type="text" class="form-control" id="relased" placeholder="Runtime">
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="genre">Genre</label>
+                                <input type="text" class="form-control" id="genre" placeholder="Genre">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="director">Director</label>
+                                <input type="text" class="form-control" id="director" placeholder="Director">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="writer">Writer</label>
+                                <input type="text" class="form-control" id="writer" placeholder="Writer">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="actors">Actors</label>
+                                <input type="text" class="form-control" id="actors" placeholder="Actors">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="plot">Plot</label>
+                                <input type="text" class="form-control" id="plot" placeholder="Actors">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="language">Language</label>
+                                <input type="text" class="form-control" id="language" placeholder="Language">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input type="text" class="form-control" id="country" placeholder="Country">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="awards">Awards</label>
+                                <input type="text" class="form-control" id="awards" placeholder="Awards">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="posteredit">Poster</label>
+                                <input type="text" class="form-control" id="posteredit" placeholder="Image URl">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="metascore">Meta Score</label>
+                                <input type="text" class="form-control" id="metascore" placeholder="Meta Score">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="imdbrating">Imdb Rating</label>
+                                <input type="text" class="form-control" id="imdbrating" placeholder="Imdb Rating">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="imdbvotes">Imdb Votes</label>
+                                <input type="text" class="form-control" id="imdbvotes" placeholder="Imdb Votes">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="imdbId">Imdb Id</label>
+                                <input type="text" class="form-control" id="imdbId" placeholder="Imdb Id">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="type">Type</label>
+                                <input type="text" class="form-control" id="type" placeholder="Type">
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
+
+
+<script>
+    var pageSize = 16;
+
+    $(document).ready(function(){
+        pageNumber = 1;
+        ShowPage(pageNumber);
+        CreatePagination();
+    });
+
+    function CreatePagination()
+    {
+        var pageCount = parseInt(imageUrls.length / pageSize)  ;
+
+        for( i = 1 ;i <= pageCount; i++)
+        {
+            var liElement = document.createElement("li");
+            var a = document.createElement("a");
+            a.href = "javascript:ShowPage("+ i +")";
+            a.text = i;
+            liElement.append(a);
+
+            $('.pagination').append(liElement);
+        }
+    }
+
+    function ShowPage(pageNumber)
+    {
+        $('#catalogs').html('');
+
+        var div;
+        for(i = 0; i < pageSize; i++)
+        {
+            if(i % (pageSize/2) == 0)
+            {
+                div = document.createElement("div");
+                div.className = "row";
+                $("#catalogs").append(div);
+            }
+
+            var imageIndex= (pageNumber - 1) * pageSize + i;
+
+            var catalog=document.createElement("div");
+            catalog.className="col-xs-6  col-sm-3 col-md-3";
+
+
+
+            var imgElement = document.createElement("img");
+            imgElement.src = imageUrls[imageIndex];
+            imgElement.setclassName="img-responsive";
+            $(imgElement).width('100%');
+
+
+
+            catalog.appendChild(imgElement);
+
+            //imgElement.className = "col-xs-6  col-sm-3 col-md-3";
+            $(div).append(catalog);
+        }
+    }
+
+    var imageUrls = [];
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTU4MDU3NDQ5Ml5BMl5BanBnXkFtZTgwOTU5MDUxNTE@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX300.jpg');
+
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTU4MDU3NDQ5Ml5BMl5BanBnXkFtZTgwOTU5MDUxNTE@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX300.jpg');
+
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTU4MDU3NDQ5Ml5BMl5BanBnXkFtZTgwOTU5MDUxNTE@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX300.jpg');
+
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTU4MDU3NDQ5Ml5BMl5BanBnXkFtZTgwOTU5MDUxNTE@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX300.jpg');
+
+
+
+
+
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTU4MDU3NDQ5Ml5BMl5BanBnXkFtZTgwOTU5MDUxNTE@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX300.jpg');
+
+
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTU4MDU3NDQ5Ml5BMl5BanBnXkFtZTgwOTU5MDUxNTE@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTU4MDU3NDQ5Ml5BMl5BanBnXkFtZTgwOTU5MDUxNTE@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX300.jpg');
+
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTU4MDU3NDQ5Ml5BMl5BanBnXkFtZTgwOTU5MDUxNTE@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg');
+    imageUrls.push('http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX300.jpg');
+
+
+
+    $(document).ready(function(){
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        var options={
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true
+        };
+        date_input.datepicker(options);
+    })
+
+
+</script>
