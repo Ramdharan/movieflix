@@ -7,15 +7,21 @@ public class JwtAuthenticationResponse implements Serializable {
 	
 	private static final long serialVersionUID = -5234425787867665983L;
 	private final String token;
-	private final String role;
+	private final Object[] role;
+	private final String username;
 
-	public String getRole() {
+	public String getUsername() {
+		return username;
+	}
+
+	public Object[] getRole() {
 		return role;
 	}
 
-	public JwtAuthenticationResponse(String token, String role) {
+	public JwtAuthenticationResponse(String token, Object[] role,String username) {
 		this.token = token;
 		this.role = role;
+		this.username=username;
 	}
 
 	public String getToken() {
