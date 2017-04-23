@@ -14,6 +14,9 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @NamedQueries({
 		@NamedQuery(name = "Ratings.getAvgRating", query = "SELECT avg(r.rating) from Ratings r where catalog_id=:catalog_id") })
+		@NamedQuery(name="Ratings.getUserRatings",query="SELECT r from Ratings r where catalog_id=:catalog_id and user_id=:user_id") })
+
+
 public class Ratings implements Serializable {
 
 	private static final long serialVersionUID = -7734013043882577945L;
