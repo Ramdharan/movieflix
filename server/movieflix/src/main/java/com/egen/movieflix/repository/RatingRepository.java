@@ -9,6 +9,10 @@ public interface RatingRepository {
 
 	public Double getAverageRatings(String id);
 
-	public Catalog getCatalog(String id);
+public Ratings getUserRating(String userid,String catalogid);
+
+public Catalog getCatalog(String catalogid);	
+
+public Double  updateUserRating(Double rating,String ratingid);
 
 }
