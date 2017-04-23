@@ -19,6 +19,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.egen.movieflix.security.LoginSucessHandler;
+import com.egen.movieflix.security.LoginFailureHandler;
 import com.egen.movieflix.security.TokenFilter;
 import com.egen.movieflix.service.AuthenticationService;
 
@@ -33,6 +35,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public TokenFilter filter;
+
+	@Autowired
+	LoginSucessHandler successHandler;
+
+	@Autowired
+	LoginFailureHandler failureHandler;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -52,12 +60,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		System.out.println("Configuring web security");
 		http.csrf().disable();
-
-		http.authorizeRequests().anyRequest().permitAll().and().formLogin().loginPage("/").loginProcessingUrl("/login")
-				.defaultSuccessUrl("/login").permitAll();
-		http.addFilterAfter(filter, UsernamePasswordAuthenticationFilter.class);
+		http.authorizeRequests().anyRequest().permitAll().and().formLogin().loginProcessingUrl("/login")
+				.successHandler(successHandler).failureHandler(failureHandler);
+		http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
 
 	}
 
