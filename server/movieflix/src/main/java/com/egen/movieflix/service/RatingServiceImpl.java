@@ -30,9 +30,13 @@ public class RatingServiceImpl implements RatingService {
 	UserRepository userRepository;
 
 	@Override
-	public Double getAverageRating(String id) {
+	public Map<String,Double> getAverageRating(String id) {
 
-		return ratingRepository.getAverageRatings(id);
+		Double result= ratingRepository.getAverageRatings(id);
+		Map<String, Double> data = new HashMap<String, Double>();
+		data.put("rating", result);
+		return data;
+	
 	}
 
 	@Override
@@ -54,11 +58,39 @@ public class RatingServiceImpl implements RatingService {
 		Ratings persisted_rating = ratingRepository.insertNewRating(rating);
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.put("id", persisted_rating.getId());
-		data.put("catalog_id", persisted_rating.getCatalog().getId());
-		data.put("user_id", persisted_rating.getUser().getId());
-		data.put("rating", persisted_rating.getRating());
+		System.out.println("returning id"+persisted_rating.getId());
 
 		return data;
 	}
 
+	@Override
+	public Map<String, Object> getUserRating(String catalogid) {
+		User user = getUser();
+		Ratings ratings = ratingRepository.getUserRating(user.getId(), catalogid);
+		Map<String, Object> data = new HashMap<String, Object>();
+		if (ratings != null) {
+			data.put("ratingid", ratings.getId());
+			data.put("rating", ratings.getRating());
+			return data;
+		} else {
+			data.put("ratingid", null);
+			data.put("rating", 0);
+			return data;
+		}
+	}
+
+	public User getUser() {
+		JwtUser jwtuser = (JwtUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		User user = userRepository.getNewUser(jwtuser.getUsername());
+		return user;
+	}
+
+	@Override
+	public Map<String, Double> updateUserRatings(Double user_rating, String ratingid) {
+		Map<String, Double> data = new HashMap<String, Double>();
+		Double result=ratingRepository.updateUserRating(user_rating, ratingid);
+		data.put("rating", result);
+		return data;
+	}
 }
