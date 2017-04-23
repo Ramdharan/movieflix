@@ -30,17 +30,15 @@ public class CommentsController {
 	public CommentsService commentsService;
 
 	@RequestMapping(value = "/post", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Map<String, Object> insertNewComment(@RequestBody Object obj,
-			@RequestHeader(Constants.TOKEN_HEADER) String token) {
+	public Map<String, Object> insertNewComment(@RequestBody Object obj) {
 
 		LinkedHashMap<String, String> data = (LinkedHashMap<String, String>) obj;
 
-		return commentsService.insertNewComment(data.get("comments"), data.get("catalogid"));
+		return commentsService.insertNewComment(data.get("comment"), data.get("catalogid"));
 	}
 
-	@RequestMapping(value = "/getall", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<CommentsResponse> getAll(@RequestParam("catalogid") String catalogid,
-			@RequestHeader(Constants.TOKEN_HEADER) String token) {
+	@RequestMapping(value = "/getall", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<CommentsResponse> getAll(@RequestParam("catalogid") String catalogid) {
 		return commentsService.getAllComments(catalogid);
 	}
 }
