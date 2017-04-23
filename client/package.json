@@ -1,0 +1,26 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "angular module",
+  "main": "index.js",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-filter": "^5.0.0",
+    "gulp-inject": "^4.2.0",
+    "gulp-uglify": "^2.1.2",
+    "main-bower-files": "^2.13.1",
+    "merge-stream": "^1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp",
+    "minify": "gulp minify"
+  },
+  "author": "Ramdharan",
+  "license": "MIT"
+}

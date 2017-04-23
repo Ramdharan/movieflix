@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-xs-12   col-sm-offset-1
+    col-sm-10   col-md-offset-1 col-md-10">
+        <div class="detailBox">
+            <div class="titleBox">
+                <label>User Reviews</label>
+            </div>
+
+            <div class="actionBox">
+                <ul class="commentList" id="comments-list">
+                    <li ng-repeat="comments in commentsList">
+                        <div class="commentText">
+                            <p id="comment_text">{{comments.comment}}</p> <span class="date sub-text">{{comments.username}}</span>
+
+                        </div>
+                    </li>
+                </ul>
+
+                <form  role="form"  name="commentsform">
+
+                    <div class="form-group" ng-class="{ 'has-error': commentsform.usercomment.$invalid && commentsform.usercomment.$dirty}">
+                        <input class="form-control" type="text" name="usercomment" placeholder="Your comments"
+                               required minlength="5"    ng-model="userComments"/>
+                        <div ng-messages="commentsform.usercomment.$error" ng-if="commentsform.usercomment.$dirty">
+                            <p class="help-block" ng-message="required">Comment cannot be empty </p>
+                            <p class="help-block" ng-message="minlength">Comment should be atleast 5 chars</p>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <button ng-disabled="commentsform.$invalid"  class="btn btn-primary"  id="add-comment">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

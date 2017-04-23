@@ -1,0 +1,69 @@
+<div class="container-fluid" id="login-container">
+    <h1 id="login-header">Movieflix</h1>
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <div class="account-wall">
+                    <form class="form-signin" novalidate name="signUpForm" ng-submit="signUpCtrl.submitDetails()">
+
+                        <div  class="form-group" ng-class="{'has-error':signUpForm.username.$invalid&&signUpForm.username.$dirty}">
+                            <input type="text" class="form-control" name="username" minlength="4" required ng-model="signUpCtrl.user.username" placeholder="Username">
+                            <div ng-messages="signUpForm.username.$error" ng-if="signUpForm.username.$dirty">
+                                <div class="help-block" ng-message="required">User Name is required</div>
+                                <div class="help-block" ng-message="minlength">User Name should be atleast 4 chars</div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error':signUpForm.firstname.$invalid&&signUpForm.firstname.$dirty}">
+                            <input type="text" class="form-control" name="firstname" minlength="4" required ng-model="signUpCtrl.user.firstname" placeholder="Firstname">
+                            <div ng-messages="signUpForm.firstname.$error" ng-if="signUpForm.firstname.$dirty">
+                                <p class="help-block" ng-message="required">First Name is required</p>
+                                <p class="help-block" ng-message="minlength">First Name should be atleast 4 chars</p>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error':signUpForm.lastname.$invalid&&signUpForm.lastname.$dirty}">
+                            <input type="text" class="form-control" name="lastname" minlength="4" required ng-model="signUpCtrl.user.lastname" placeholder="Lastname">
+                            <div ng-messages="signUpForm.lastname.$error" ng-if="signUpForm.lastname.$dirty">
+                                <p class="help-block" ng-message="required">Last Name is required</p>
+                                <p class="help-block" ng-message="minlength">Last Name should be atleast 4 chars</p>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error':signUpForm.email.$invalid&&signUpForm.email.$dirty}">
+                            <input type="email" class="form-control" name="email"  required ng-model="signUpCtrl.user.email" placeholder="Email">
+                            <div ng-messages="signUpForm.email.$error" ng-if="signUpForm.email.$dirty">
+                                <p class="help-block" ng-message="required">Email is required</p>
+                                <p class="help-block" ng-message="email">Enter a valid email</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group" ng-class="{'has-error':signUpForm.password.$invalid&&signUpForm.password.$dirty}">
+                            <input type="password" class="form-control" name="password" minlength="4" required ng-model="signUpCtrl.user.password" placeholder="Password">
+                            <div ng-messages="signUpForm.password.$error" ng-if="signUpForm.password.$dirty">
+                                <p class="help-block" ng-message="required">Email is required</p>
+                                <p class="help-block" ng-message="minlength">Enter a valid email</p>
+                            </div>
+
+                        </div>
+                        <button ng-disabled="signUpForm.$invalid" class="btn btn-lg btn-primary btn-block" type="submit">
+                            Sign Up</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>

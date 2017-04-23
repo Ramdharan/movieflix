@@ -1,0 +1,110 @@
+<div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-11 col-xs-offset-1   col-sm-offset-1
+    col-sm-8   col-md-offset-2 col-md-6 col-lg-6">
+                <h2>{{catalogDetailCtrl.catalog.title}}</h2>
+
+                <div id="menu">
+
+                    <div >
+                        <label >{{catalogDetailCtrl.catalog.runtime}}</label><span>{{catalogDetailCtrl.catalog.released|date:'yyyy-MM-dd'}} </span>
+
+                    </div >
+
+                    <div >
+                        <label >{{catalogDetailCtrl.catalog.genre}}</label><span>{{catalogDetailCtrl.catalog.rated}} </span>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+            <div class="row">
+                <div class="col-xs-11 col-xs-offset-1
+    col-sm-5   col-md-offset-2 col-md-4 col-lg-4">
+                    <img id="catalog-poster" ng-src="{{catalogDetailCtrl.catalog.poster}}" class="img-responsive">
+                </div>
+                <div class=" col-sm-5  col-xs-11 col-xs-offset-1  col-md-offset-0 col-md-5 col-lg-4">
+                    <div id="detail-box">
+                        <div class="row">
+                            <h4><span>Your Rating : </span>{{catalogDetailCtrl.userRating}} </h4>
+                            <!--Used ng-rate it because angular Ui-rating is not having support for half stars-->
+                            <ng-rate-it ng-model=catalogDetailCtrl.userRating max="10" rated="catalogDetailCtrl.userRated"
+                                        resetable="false"></ng-rate-it>
+
+                        </div>
+
+                        <div class="row">
+                            <h4><span>Avg Rating: </span>{{catalogDetailCtrl.avgRating|number:1 }}</h4>
+
+                        </div>
+
+                        <div class="row" id="directordesc">
+                            <h4><span >Director : </span>{{catalogDetailCtrl.catalog.director}}
+                            </h4>
+                        </div>
+
+                        <div class="row" id="story">
+                            <h4>
+                                <span >Story : </span>{{catalogDetailCtrl.catalog.plot}}  </h4>
+                        </div>
+
+
+                        <div class="row" id="country">
+                            <h4>
+                                <span >Actors : </span>{{catalogDetailCtrl.catalog.actors}}</h4>
+                        </div>
+
+                        <div class="row" id="awardsdesc">
+                            <h4><span >Awards : </span>{{catalogDetailCtrl.catalog.awards}}</h4>
+                        </div>
+
+
+                        <div class="row" id="langauge">
+                            <h4>
+                                <span >Language : </span>{{catalogDetailCtrl.catalog.language}}</h4>
+                        </div>
+
+
+                        <div class="row" id="actorsdesc">
+                            <h4>
+                                <span >Country : </span>{{catalogDetailCtrl.catalog.country}}</h4>
+                        </div>
+
+
+
+                        <div class="row" id="imdbratingdesc">
+                            <h4>
+                                <span >Imdb Rating : </span>{{catalogDetailCtrl.catalog.imdbRating|number:1}}</h4>
+                            <ng-rate-it ng-model=catalogDetailCtrl.catalog.imdbRating max="10" read-only="true"></ng-rate-it>
+
+                        </div>
+
+                        <div class="row" id="imdbvotesdesc">
+                            <h4>
+                                <span>Imdb Votes : </span>{{catalogDetailCtrl.catalog.imdbVotes}}</h4>
+                        </div>
+
+                    </div>
+
+
+                    <admin-control type="button" class="btn btn-info btn-md"
+                                   data-toggle="modal" role= {{catalogDetailCtrl.userRole}}
+                                   data-target="#catalog_model">Edit</admin-control>
+                    <div>
+                    <catalog-dialog title="Edit Catalog"
+                               call-back-function="catalogDetailCtrl.updateCallback()"     action="Edit" catalog="catalogDetailCtrl.catalog"></catalog-dialog>
+                    </div>
+            </div>
+
+    </div>
+
+    </div>
+    <comments-directive comments-list="catalogDetailCtrl.commentsList" call-back-function="catalogDetailCtrl.postComment(comment)">
+
+    </comments-directive>
+</div>

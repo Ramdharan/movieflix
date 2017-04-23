@@ -1,0 +1,32 @@
+
+
+#menu span {
+    border-left: solid gray 1px;
+    padding-right: 5px;
+    padding-left:5px;
+}
+#menu label{
+    padding-right: 5px;
+}
+
+
+.editbtn{
+    padding-top: 10px;
+}
+.deletebtn{
+    padding-top: 10px;
+}
+
+#menu span {
+    border-left: solid gray 1px;
+    padding-right: 5px;
+    padding-left:5px;
+}
+#menu label{
+    padding-right: 5px;
+}
+#detail-box span{
+    color: red;
+}
+
+
