@@ -59,12 +59,10 @@
          */
         function getAllComments(catalogId) {
             catalogDetailService.commentsList(catalogId).then(function (response) {
-                console.log("comments list:" + response);
 
                 detail.commentsList = response;
             }, function (error) {
-                //Even if its error, data will be empty. Sending empty data from Service
-                detail.commentsList = error;
+                detail.commentsList=[];
             })
         }
         /*
@@ -100,11 +98,8 @@
          */
         function getUserRating(catalogid) {
             catalogDetailService.userRating(catalogid).then(function (response) {
-                console.log("user rating::" + response);
                 detail.userRating = response.rating;
-                console.log("user rating::" + detail.userRating);
                 detail.ratingId = response.ratingid
-                console.log(" rating id::" + detail.ratingId);
 
 
             }, function (error) {
@@ -119,9 +114,7 @@
          * @param rating
          */
         function insertNewRating(catalogid, rating) {
-            console.log('inserting new rating :' + rating);
             catalogDetailService.newRating(catalogid, rating).then(function (response) {
-                console.log("new rating:" + response);
                 detail.ratingId = response.id
                 getAvgRating(detail.catalogId);
             }, function (error) {
