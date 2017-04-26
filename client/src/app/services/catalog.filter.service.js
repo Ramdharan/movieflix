@@ -13,45 +13,36 @@
         /**
          * Filter catalog data by type using lodash
          * @param type
-         * @returns {Promise}
+         *
          */
 
         function filterType(type) {
+            var data = _.filter(catalogService.catalogList, function (catalog) {
 
-                var deferred = $q.defer();
-                function filterData() {
-                    var data = _.filter(catalogService.catalogList, function (catalog) {
+                return catalog != null && catalog.type == type;
+            });
 
-                        return catalog != null && catalog.type == type;
-                    });
-                    console.log(data);
-                  deferred.resolve(data)
-                }
-            filterData();
+            return data;
 
-                return deferred.promise
-            }
+        }
 
         /**
          * Filter catalog data by genre using lodash
          * @param genre
-         * @returns {Promise}
+         *
          */
 
         function filterGenre(genre){
-            console.log(genre);
-                var deferred = $q.defer();
-                filterGenreData();
-                function filterGenreData(){
-                 var genrelist  =_.filter(catalogService.catalogList,function(catalog){
-                     console.log(genre);
 
-                     return catalog.genre.indexOf(genre)>-1;
-                    });
-                deferred.resolve(genrelist);
-                }
+            var genrelist  =_.filter(catalogService.catalogList,function(catalog){
+                console.log(genre);
 
-                return deferred.promise;
+                return catalog.genre.indexOf(genre)>-1;
+            });
+
+            return genrelist;
+
+
 
             }
 

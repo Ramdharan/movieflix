@@ -24,11 +24,8 @@
          * @param type
          */
            function getFilterType(type){
-            catalogFilterService.filterType(type).then(function(data){
-                filter.filterList=data;
-               },function(error){
-                filter.filterList=[];
-               });
+          
+            filter.filterList= catalogFilterService.filterType(type);
            }
 
         /**
@@ -37,11 +34,9 @@
          */
 
            function getFilterGenre(genre){
-            catalogFilterService.filterByGenre(genre).then(function(data){
-                filter.filterList=data;
-            },function(error){
-                filter.filterList=[];
-            })  ;
+
+            filter.filterList= catalogFilterService.filterByGenre(genre);
+
            }
 
     }
