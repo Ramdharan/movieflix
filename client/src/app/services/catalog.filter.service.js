@@ -2,9 +2,9 @@
     'use strict';
     var module=angular.module('movieflix');
     module.service('catalogFilterService',catalogFilterService);
-    catalogFilterService.$inject=['_','catalogService','$q']
+    catalogFilterService.$inject=['_','catalogService']
 
-    function catalogFilterService(_,catalogService,$q){
+    function catalogFilterService(_,catalogService){
         var vm=this;
         vm.filterType=filterType;
         vm.filterByGenre=filterGenre;
