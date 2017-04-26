@@ -1,0 +1,47 @@
+<div class="container">
+<input type="text" class="form-control" placeholder="Search by title" ng-model="search.title">
+<table class="table ">
+    <thead>
+    <tr>
+<th>
+        <a href="" ng-click="CatalogFilterCtrl.orderByField='title'; CatalogFilterCtrl.reverseSort = !CatalogFilterCtrl.reverseSort">
+           Title <span ng-show="CatalogFilterCtrl.orderByField == 'title'"><span ng-show="!CatalogFilterCtrl.reverseSort">^</span><span ng-show="CatalogFilterCtrl.reverseSort">v</span></span>
+        </a>
+        </th>
+
+        <th>
+            <a href="" ng-click="CatalogFilterCtrl.orderByField='imdbRating'; CatalogFilterCtrl.reverseSort = !CatalogFilterCtrl.reverseSort">
+                imdbRating <span ng-show="CatalogFilterCtrl.orderByField == 'imdbRating'"><span ng-show="!CatalogFilterCtrl.reverseSort">^</span><span ng-show="CatalogFilterCtrl.reverseSort">v</span></span>
+            </a>
+        </th>
+
+        <th>
+            <a href="" ng-click="CatalogFilterCtrl.orderByField='imdbVotes'; CatalogFilterCtrl.reverseSort = !CatalogFilterCtrl.reverseSort">
+                Votes <span ng-show="CatalogFilterCtrl.orderByField =='imdbVotes'"><span ng-show="!CatalogFilterCtrl.reverseSort">^</span><span ng-show="CatalogFilterCtrl.reverseSort">v</span></span>
+            </a>
+        </th>
+
+        <th>
+            <a href="" ng-click="CatalogFilterCtrl.orderByField='year'; CatalogFilterCtrl.reverseSort = !CatalogFilterCtrl.reverseSort">
+                Year <span ng-show="CatalogFilterCtrl.orderByField == 'year'"><span ng-show="!CatalogFilterCtrl.reverseSort">^</span><span ng-show="CatalogFilterCtrl.reverseSort">v</span></span>
+            </a>
+        </th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="catalog in CatalogFilterCtrl.filterList |orderBy:CatalogFilterCtrl.orderByField:CatalogFilterCtrl.reverseSort|filter:search" >
+        <td>
+            <a href="#/detail/{{catalog.id}}">
+                {{catalog.title}}
+            </a>
+        </td>
+        <td>{{catalog.imdbRating}}</td>
+        <td>{{catalog.imdbVotes}}</td>
+        <td>{{catalog.year}}</td>
+
+    </tr>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,133 @@
+<div class="container">
+
+    <div class="row" id="top-banner">
+
+        <div class="col-xs-12 col-sm-12">
+            <nav class="navbar navbar-inverse bg-inverse">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#movieflix-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">Movie Flix</a>
+                    <input type="search" class="search-box" placeholder="Search by title" ng-model="search.title">
+                </div>
+
+                <div class="collapse navbar-collapse" id="movieflix-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Select Type <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/filter/movie">Movies</a></li>
+                                <li><a href="#filter/series">Series</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Genre <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-column columns-3">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <ul class="multi-column-dropdown">
+                                            <li><a href="#/filter/Action">Action</a></li>
+                                            <li><a href="#/filter/Adventure">Adventure</a></li>
+                                            <li><a href="#/filter/Sci-Fi">Sci-Fi</a></li>
+                                            <li><a href="#/filter/Thriller">Thriller</a></li>
+                                            <li><a href="#/filter/Crime">Crime</a></li>
+                                            <li><a href="#/filter/News">News</a></li>
+                                            <li><a href="#/filter/Talkshow">Talkshow</a></li>
+
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <ul class="multi-column-dropdown">
+                                            <li><a href="#/filter/Drama">Drama</a></li>
+                                            <li><a href="#/filter/Fantasy">Fantasy</a></li>
+                                            <li><a href="#/filter/Comedy">Comedy</a></li>
+                                            <li><a href="#/filter/History">History</a></li>
+                                            <li><a href="#/filter/Biography">Biography</a></li>
+                                            <li><a href="#/filter/Documentary">Documentary</a></li>
+                                            <li><a href="#/filter/War">War</a></li>
+
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <ul class="multi-column-dropdown">
+                                            <li><a href="#/filter/Mystery">Mystery</a></li>
+                                            <li><a href="#/filter/Romance">Romance</a></li>
+                                            <li><a href="#/filter/Western">Western</a></li>
+                                            <li><a href="#/filter/Animation">Animation</a></li>
+                                            <li><a href="#/filter/Horror">Horror</a></li>
+
+                                            <li><a href="#/filter/Family">Family</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li>
+
+                            <admin-control class="btn btn-md  btn-info" id="create-catalog"
+                                           data-toggle="modal"
+                                           data-target="#catalog_model" role={{catalogCtrl.userRole}}>
+                                Create
+
+                            </admin-control>
+                        </li>
+                        <a ng-click="catalogCtrl.logout()" class="btn btn-danger btn-md  pull-right" id="btn-logout">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                        </a>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div ng-repeat="catalog in filterData=(catalogCtrl.catalogList|filter:search) |  limitTo:16:16*(catalogCtrl.currentPage-1)">
+            <div class="col-xs-6  col-sm-6 col-md-3">
+                <a href="#/detail/{{catalog.id}}">
+                    <div class="catalog-content ">
+                        <div class="view overlay hm-white-slight">
+                            <img id="card-img" ng-src="{{catalog.poster}}" , class="img-responsive">
+                        </div>
+                    </div>
+
+
+                </a>
+                <admin-control class="btn btn-danger btn-md" id="delete-catalog" role={{catalogCtrl.userRole}}
+                               ng-click="catalogCtrl.delete(catalog.id)">
+                    <span class="glyphicon glyphicon-trash"></span>
+
+                </admin-control>
+
+
+            </div>
+
+        </div>
+    </div>
+    <ul uib-pagination boundary-links="true" total-items="filterData.length" data-ng-if="filterData.length"
+        ng-change="catalogCtrl.pageChanged()" ng-model="catalogCtrl.currentPage" class="pagination-sm"
+        previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+
+
+    <div>
+        <catalog-dialog title="Create New Catalog" catalog="catalogCtrl.emptyCatalog"
+                        call-back-function="catalogCtrl.createdCallback()" action="Create">
+
+        </catalog-dialog>
+    </div>
+
+
+</div>

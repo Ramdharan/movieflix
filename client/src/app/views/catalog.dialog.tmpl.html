@@ -1,0 +1,151 @@
+<div class="container">
+
+    <div class="modal fade" id="catalog_model" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">{{title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="catalogtitle">Title</label>
+                            <input type="text" class="form-control" id="catalogtitle" ng-model="catalog.title" value="{{catalog.title}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year</label>
+                            <input type="text" class="form-control" id="year" ng-model="catalog.year" value="{{catalog.year}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rated">Rated</label>
+                            <input type="text" class="form-control" id="rated" ng-model="catalog.rated" value="{{catalog.rated}}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" >Released</label>
+
+                            <p class="input-group">
+                                <input type="text" class="form-control"
+                                       uib-datepicker-popup="{{format}}"
+                                       is-open="valuationDatePickerIsOpen"
+                                       ng-click="valuationDatePickerOpen()"
+                                       value="{{catalog.released}}"
+                                       ng-model="catalog.released"
+
+                                />
+                                <span class="input-group-btn">
+          <button type="button" class="btn btn-default"
+                  ng-click="valuationDatePickerOpen($event)">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </button>
+        </span>
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="relased">Run time</label>
+                            <input type="text" class="form-control" id="relased" ng-model="catalog.runtime" value="{{catalog.runtime}}">
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="genre">Genre</label>
+                            <input type="text" class="form-control" id="genre" ng-model="catalog.genre" value="{{catalog.genre}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="director">Director</label>
+                            <input type="text" class="form-control" id="director" ng-model="catalog.director" value="{{catalog.director}}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="writer">Writer</label>
+                            <input type="text" class="form-control" id="writer" ng-model="catalog.writer" value="{{catalog.writer}}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="actors">Actors</label>
+                            <input type="text" class="form-control" id="actors" ng-model="catalog.actors" value="{{catalog.actors}}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="plot">Plot</label>
+                            <input type="text" class="form-control" id="plot" ng-model="catalog.plot" value="{{catalog.plot}}">
+                        </div>
+
+
+                        <div   class="form-group">
+                            <label for="language">Language</label>
+                            <input type="text" class="form-control" ng-model="catalog.language" value="{{catalog.language}}" id="language">
+                            </input>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" class="form-control" id="country" ng-model="catalog.country" value="{{catalog.country}}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="awards">Awards</label>
+                            <input type="text" class="form-control" id="awards" ng-model="catalog.awards" value="{{catalog.awards}}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="posteredit">Poster</label>
+                            <input type="text" class="form-control" id="posteredit" ng-model="catalog.poster" value="{{catalog.poster}}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="metascore">Meta Score</label>
+                            <input type="text" class="form-control" id="metascore" ng-model="catalog.metaScore"  value="{{catalog.metaScore}}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="imdbrating">Imdb Rating</label>
+                            <input type="text" class="form-control" id="imdbrating" ng-model="catalog.imdbRating" value="{{catalog.imdbRating}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imdbvotes">Imdb Votes</label>
+                            <input type="text" class="form-control" id="imdbvotes" ng-model="catalog.imdbVotes" value="{{catalog.imdbVotes}}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="imdbId">Imdb Id</label>
+                            <input type="text" class="form-control" id="imdbId" ng-model="catalog.imdbId" value="{{catalog.imdbId}}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <input type="text" class="form-control" id="type" ng-model="catalog.type" value="{{catalog.type}}">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="modal-edit" data-dismiss="modal">{{action}}</button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
